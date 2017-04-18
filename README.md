@@ -77,5 +77,7 @@ The currently supported task types are:
 
 In cases where the remote system does not support organisations it should be possible to re-use categories or a related field for remote_organisations.
 
+Logging should be handled outside of this library, but the library should provide a hook where the system hosting the library can provide a logger.  This logger function will be used by the harvesters to log progress.
+
 Any datasets created MUST include a harvest_id field that will not change from run to run.  For instance, for a dataset created from a CKAN instance the harvest_id should be the source ID.  This can then be checked on each run to see if an update or create event should be actioned.
 
