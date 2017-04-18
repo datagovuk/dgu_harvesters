@@ -2,6 +2,15 @@
 
 from setuptools import setup, find_packages
 
+install_requires = [
+    'requests==2.13.0',
+
+    # Testing tools
+    'mock==2.0.0',
+    'nose==1.3.7'
+]
+
+
 setup(
     name='DGU_Harvesters',
     version='1.0',
@@ -10,6 +19,5 @@ setup(
     author_email='',
     url='https://github.com/datagovuk/dgu_harvesters',
     packages=find_packages(exclude=['ez_setup', 'examples', 'tests']),
-    install_requires=[
-    ]
+    install_requires=install_requires,
 )
