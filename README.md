@@ -16,6 +16,7 @@ to execute from a message queue.
 The jobs provided to the harvesting code should be serialised as JSON and contain the following fields in order to be processed.
 
 The outer envelope should look like:
+
 |Name|Use|
 |----|----|
 |id|A unique identifier for the message (UUID)|
@@ -24,6 +25,7 @@ The outer envelope should look like:
 |task|See task object below |
 
 The user object:
+
 |Name|Use|
 |----|----|
 |username|The username of the user this task should run as|
