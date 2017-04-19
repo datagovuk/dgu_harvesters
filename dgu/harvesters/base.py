@@ -62,9 +62,9 @@ the conversion from the endpoint format to our internal one.
 """
 class Dataset(object):
 
-    def __init__(self, **kwargs):
-        for k, v in kwargs.items():
-            setattr(self, k, v)
+    def __init__(self):
+        for k in ['name', 'title']:
+            setattr(self, k, '')
 
     """
     Subclass implementations should implement this method to convert
@@ -73,3 +73,13 @@ class Dataset(object):
     """
     def convert(self, data):
         pass
+
+    """
+    Called to check that all required fields are set
+    """
+    def validate(self):
+        errors = []
+        if not self.name:
+            errors.append('name is not set')
+        return errors
+
