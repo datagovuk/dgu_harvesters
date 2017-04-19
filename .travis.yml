@@ -3,4 +3,4 @@ python:
   - "3.5"
 install: "python setup.py develop"
 cache: pip
-script: "nodetests"
+script: "nosetests"
