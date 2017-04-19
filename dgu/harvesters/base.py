@@ -8,6 +8,14 @@ of metadata.
 class HarvesterBase(object):
 
     """
+    To be implemented by the sub-classes that implement actual
+    harvesters.  The method MUST return a generator which when
+    processed will provide an iterable of Dataset objects.
+    """
+    def records(self):
+        pass
+
+    """
     configure() will be called before any other function and the
     provided job data will passed as the sole parameter. There is
     no requirement for sub-classes to implement this method as it
@@ -46,3 +54,22 @@ class HarvesterBase(object):
     """
     def get_user(self):
         return self.user
+
+"""
+A class to hold fields that represent a dataset understood by DGU.
+Subclasses of harvesters should also override this class to provide
+the conversion from the endpoint format to our internal one.
+"""
+class Dataset(object):
+
+    def __init__(self, **kwargs):
+        for k, v in kwargs.items():
+            setattr(self, k, v)
+
+    """
+    Subclass implementations should implement this method to convert
+    from the source format to a form understood by DGU. It should
+    populate it's own fields with the appropriate values.
+    """
+    def convert(self, data):
+        pass
