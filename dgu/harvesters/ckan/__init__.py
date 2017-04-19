@@ -2,7 +2,9 @@ from dgu.harvesters.base import HarvesterBase, Dataset
 
 
 class CKANHarvester(HarvesterBase):
-    pass
+
+    def records(self):
+        yield
 
 
 class CKANDataset(Dataset):
