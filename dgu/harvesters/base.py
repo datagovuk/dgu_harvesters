@@ -1,7 +1,9 @@
+from typing import Any, Generator, List, Dict
+
 import os
 import requests
 
-def get_request_session():
+def get_request_session() -> requests.Session:
     session = requests.Session()
 
     if os.environ.get('TESTING', "0") == "1":
@@ -27,7 +29,7 @@ class HarvesterBase(object):
     harvesters.  The method MUST return a generator which when
     processed will provide an iterable of Dataset objects.
     """
-    def records(self):
+    def records(self) -> Generator:
         pass
 
     """
@@ -36,7 +38,7 @@ class HarvesterBase(object):
     no requirement for sub-classes to implement this method as it
     will retrieve all of the required information
     """
-    def configure(self, config):
+    def configure(self, config: Any) -> None:
         self.id = config.get('id')
         self.user = config.get('user')
 
@@ -50,32 +52,32 @@ class HarvesterBase(object):
     """
     Get the requests session
     """
-    def get_session(self):
+    def get_session(self) -> requests.Session:
         return self.session
 
     """
     Returns the short-name of the target organisation
     """
-    def get_organisation(self):
+    def get_organisation(self) -> str:
         return self.get_organisation
 
     """
     Returns the URL of the endpoint
     """
-    def get_url(self):
+    def get_url(self) -> str:
         return self.url
 
     """
     Returns a list of remote organisations, used as a filter on
     the endpoint to limit the response
     """
-    def get_remote_organisations(self):
+    def get_remote_organisations(self) -> List[str]:
         return self.remote_organisations
 
     """
     Returns the user details provided with the harvest job
     """
-    def get_user(self):
+    def get_user(self) -> Dict:
         return self.user
 
 """
@@ -100,7 +102,7 @@ class Dataset(object):
     """
     Called to check that all required fields are set
     """
-    def validate(self):
+    def validate(self) -> List[str]:
         errors = []
         if not self.name:
             errors.append('name is not set')
