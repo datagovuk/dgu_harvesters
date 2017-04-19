@@ -7,10 +7,12 @@ install_requires = [
     'ckanapi==4.0',
     'lxml==3.7.3',
     'OWSLib==0.14.0',
+    'dotmap==1.2.17',
 
     # Testing tools
     'mock==2.0.0',
-    'nose==1.3.7'
+    'nose==1.3.7',
+    'requests-mock==1.3.0'
 ]
 
 

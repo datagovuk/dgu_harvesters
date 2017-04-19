@@ -1,4 +1,4 @@
-from dgu.harvesters.base import HarvesterBase, Dataset
+from dgu.harvesters.base import HarvesterBase, Dataset, get_request_session
 
 
 class CKANHarvester(HarvesterBase):

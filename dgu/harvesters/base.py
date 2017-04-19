@@ -1,4 +1,19 @@
+import os
+import requests
 
+def get_request_session():
+    session = requests.Session()
+
+    if os.environ.get('TESTING', "0") == "1":
+        import requests_mock
+        from tests import test_uris
+
+        adapter = requests_mock.Adapter()
+        session.mount('mock', adapter)
+        for k, v in test_uris():
+            adapter.register_uri('GET', 'mock://{}'.format(k), text=v)
+
+    return session
 
 """
 HarvesterBase provides a skeleton implementation that is overridable
@@ -29,6 +44,14 @@ class HarvesterBase(object):
         self.organisation = task.get('organisation')
         self.remote_organisations = task.get('remote_organisations')
         self.url = task.get('url')
+
+        self.session = get_request_session()
+
+    """
+    Get the requests session
+    """
+    def get_session(self):
+        return self.session
 
     """
     Returns the short-name of the target organisation
