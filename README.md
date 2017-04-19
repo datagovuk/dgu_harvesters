@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/datagovuk/dgu_harvesters.svg?branch=master)](https://travis-ci.org/datagovuk/dgu_harvesters)
+
 # DGU Harvesters
 
 This repository contains the code for individual harvesters for DGU.  These
