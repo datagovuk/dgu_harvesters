@@ -3,6 +3,7 @@
 from setuptools import setup, find_packages
 
 install_requires = [
+    'mypy==0.501',
     'requests==2.13.0',
     'ckanapi==4.0',
     'lxml==3.7.3',

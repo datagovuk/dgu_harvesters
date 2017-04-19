@@ -59,7 +59,7 @@ class HarvesterBase(object):
     Returns the short-name of the target organisation
     """
     def get_organisation(self) -> str:
-        return self.get_organisation
+        return self.organisation
 
     """
     Returns the URL of the endpoint
@@ -88,8 +88,8 @@ the conversion from the endpoint format to our internal one.
 class Dataset(object):
 
     def __init__(self):
-        for k in ['name', 'title']:
-            setattr(self, k, '')
+        self.name = ''
+        self.title = ''
 
     """
     Subclass implementations should implement this method to convert
