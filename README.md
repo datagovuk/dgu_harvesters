@@ -6,10 +6,19 @@ are individual modules where each is able to harvest from a specific endpoint.
 ## Installation
 
 Harvesters are intended for use within a worker process that obtains jobs
-to execute from a message queue.
+to execute from a message queue. They can installed by including in another
+project's requirements, or manually by:
+
+1. Clone the repository
+2. cd dgu_harvesters
+3. python setup.py develop
+
 
 ## Running tests
 
+Tests can be run with the following command:
+
+```nosetests```
 
 ## Jobs
 

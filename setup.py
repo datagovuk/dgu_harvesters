@@ -4,6 +4,9 @@ from setuptools import setup, find_packages
 
 install_requires = [
     'requests==2.13.0',
+    'ckanapi==4.0',
+    'lxml==3.7.3',
+    'OWSLib==0.14.0',
 
     # Testing tools
     'mock==2.0.0',
